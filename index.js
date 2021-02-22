@@ -65,8 +65,10 @@ function bundle(entry){
     `
 
     
-
-    fs.writeFileSync("./result.js", result);
+    if(!fs.existsSync("./dist")){
+        fs.mkdirSync("./dist");
+    }
+    fs.writeFileSync("./dist/main.js", result);
 }
 
 function getQueue(name, entry){
